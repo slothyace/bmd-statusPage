@@ -8,10 +8,17 @@ The name of the theme will be the folder's name.
 i.e The default theme is stored in `themes/default`
 <br>
 Your folder should include the following files:  
-index.html  
-```Required!```  
-style.css  
-```If you're styling the page in index.html you can leave this file empty, but it will be required.```  
-bmd.ico  
-```If you do not plan to change the icon of the tab, you can copy paste the `bmd.ico` file in the `default` theme.
-It is part of the required files.```  
+- index.html  
+```
+Required as it serves the /monitor page.
+```  
+- style.css  
+```
+Required as it serves the /style.css page.
+  - Leave the file empty if you're styling the page in index.html
+```  
+- bmd.ico  
+```
+Required as it serves the tab icon.
+  - Copy paste the bmd.ico file from the default theme if you're not changing the icon.
+```  
