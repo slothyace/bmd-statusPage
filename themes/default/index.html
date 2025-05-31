@@ -259,6 +259,7 @@
           type: "line",
           data: { datasets: [cpuDataset] },
           options: {
+            tension: 0.3,
             plugins: { legend: { display: false } },
             responsive: true,
             scales: {
@@ -281,6 +282,7 @@
           type: "line",
           data: { datasets: [memoryDataset] },
           options: {
+            tension: 0.3,
             plugins: { legend: { display: false } },
             responsive: true,
             scales: {
@@ -294,7 +296,7 @@
               y: { beginAtZero: true },
             },
           },
-        }
+        },
       );
 
       setInterval(async () => {
