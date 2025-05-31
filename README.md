@@ -1,12 +1,18 @@
 # bmd-statusPage
-BMD Status Page Mod Themes Repo
+BMD Status Page Mod Themes.
 
 ## Submitting A Theme
-You can sumbit your own theme by making a new folder under the `themes` directory.  
+You can submit your own theme by:
+1) [Forking the repo](https://github.com/slothyace/bmd-statusPage/fork).
+2) Making a new folder under the `themes` directory.
+3) Creating the necessary files.
+4) Making a pull request.
 <br>
-The name of the theme will be the folder's name.  
-i.e The default theme is stored in `themes/default`
+The folder's name will be taken as the theme's name.
 <br>
+Example: A theme named `galaxy` will be located in `themes/galaxy`.
+
+## File Requirements
 Your folder should include the following files:  
 - index.html  
 ```
