@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="tabName">Status Page</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="/style.css"
-    />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,17 +37,29 @@
           <div
             class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0"
           >
-            <h1 class="font-semibold">
-              CPU Usage <span class="text-white/25">(in %)</span>
-            </h1>
+            <div class="flex justify-between items-center">
+              <h1 class="font-semibold">
+                CPU Usage <span class="text-white/25">(in %)</span>
+              </h1>
+              <span
+                class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium cpuUsagePercent transition-opacity"
+                >0%</span
+              >
+            </div>
             <canvas id="cpuUsageChart" class="flex-1 min-h-0 w-full"></canvas>
           </div>
           <div
             class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0"
           >
-            <h1 class="font-semibold">
-              Memory Usage <span class="text-white/25">(in MB)</span>
-            </h1>
+            <div class="flex justify-between items-center">
+              <h1 class="font-semibold">
+                Memory Usage <span class="text-white/25">(in MB)</span>
+              </h1>
+              <span
+                class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium memoryUsageMB transition-opacity"
+                >0 MB</span
+              >
+            </div>
             <canvas
               id="memoryUsageChart"
               class="flex-1 min-h-0 w-full"
@@ -160,7 +169,7 @@
         <p class="text-sm text-neutral-500">
           Powered by
           <a
-            href="https://github.com/"
+            href="https://github.com/slothyace/bmd-statusPage"
             target="_blank"
             class="text-blue-500/60 hover:underline"
             >bmd-statuspage</a
@@ -193,7 +202,9 @@
       }
 
       setDataToClass(data);
-      document.getElementById("tabName").innerText = `${data.prjName} Status Page`;
+      document.getElementById(
+        "tabName"
+      ).innerText = `${data.prjName} Status Page`;
 
       function formatUptime(seconds) {
         const days = Math.floor(seconds / 86400);
@@ -262,6 +273,10 @@
             tension: 0.3,
             plugins: { legend: { display: false } },
             responsive: true,
+            interaction: {
+              mode: "nearest",
+              intersect: false,
+            },
             scales: {
               x: {
                 type: "time",
@@ -285,6 +300,10 @@
             tension: 0.3,
             plugins: { legend: { display: false } },
             responsive: true,
+            interaction: {
+              mode: "nearest",
+              intersect: false,
+            },
             scales: {
               x: {
                 type: "time",
@@ -296,8 +315,24 @@
               y: { beginAtZero: true },
             },
           },
-        },
+        }
       );
+
+      function updateTags() {
+        const cpu = document.querySelector(".cpuUsagePercent");
+        const memory = document.querySelector(".memoryUsageMB");
+        cpu.textContent = cpuDataset.data[cpuDataset.data.length - 1].y + "%";
+        memory.textContent =
+          memoryDataset.data[memoryDataset.data.length - 1].y + " MB";
+        cpu.style.opacity = "0.85";
+        memory.style.opacity = "0.85";
+        setTimeout(() => {
+          cpu.style.opacity = "1";
+          memory.style.opacity = "1";
+        }, 400);
+      }
+
+      updateTags();
 
       setInterval(async () => {
         const response = await fetch("/raw");
@@ -311,6 +346,8 @@
           x: d.timestamp,
           y: parseFloat(d.memory),
         }));
+
+        updateTags();
 
         cpuUsageChart.update();
         memoryUsageChart.update();
