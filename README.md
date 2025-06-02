@@ -7,9 +7,8 @@ You can submit your own theme by:
 2) Making a new folder under the `themes` directory.
 3) Creating the necessary files.
 4) Making a pull request.
-<br>
-The folder's name will be taken as the theme's name.
-<br>
+
+The folder's name will be taken as the theme's name.<br>
 Example: A theme named `galaxy` will be located in `themes/galaxy`.
 
 ## File Requirements
