@@ -1,88 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #0e0e0e;
-    }
-
-    form {
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      width: 100%;
-      max-width: 300px;
-    }
-
-    input {
-      display: block;
-      margin: 0.5rem 0;
-      width: 100%;
-      padding: 0.5rem;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      width: 100%;
-    }
-
-    .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    h2 {
-      text-align: center;
-      color: white;
-      margin-bottom: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <form id="login-form">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button type="submit">Log In</button>
-    <p class="error" id="error-msg"></p>
-  </form>
-
-  <script>
-    document.getElementById("login-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
-      });
-
-      if (response.ok) {
-        window.location.href = "/monitor"
-      } else {
-        document.getElementById("error-msg").textContent = "Login failed";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    });
-  </script>
-</body>
+
+      body {
+        font-family: Helvetica;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #0e0e0e;
+      }
+
+      form {
+        background: #1e1e1e;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      input {
+        display: block;
+        margin: 0.5rem 0;
+        width: 100%;
+        padding: 0.5rem;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        background: #fff;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        10% {
+          transform: translateX(-12px);
+        }
+        20% {
+          transform: translateX(12px);
+        }
+        30% {
+          transform: translateX(-10px);
+        }
+        40% {
+          transform: translateX(10px);
+        }
+        50% {
+          transform: translateX(-8px);
+        }
+        60% {
+          transform: translateX(8px);
+        }
+        70% {
+          transform: translateX(-6px);
+        }
+        80% {
+          transform: translateX(6px);
+        }
+        90% {
+          transform: translateX(-4px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .shake {
+        animation: shake 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login-form">
+      <h2>Status Page Login</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Log In</button>
+      <p class="error" id="error-msg"></p>
+    </form>
+
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+          });
+
+          if (response.ok) {
+            window.location.href = "/monitor";
+          } else {
+            const formContainer = document.getElementById("login-form");
+            formContainer.classList.remove("shake");
+            void formContainer.offsetWidth;
+            formContainer.classList.add("shake");
+          }
+        });
+    </script>
+  </body>
 </html>
