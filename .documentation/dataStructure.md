@@ -19,6 +19,7 @@ The data that is sent to the `/raw` endpoint are as follows:
   ],
   updInterval: <num, int>,
   uptime: <num, in seconds>,
+  startTime: "<ISO 8601>",
   logs:[
     {
       msg: "<str>",
