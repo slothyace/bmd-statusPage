@@ -1,5 +1,5 @@
 # bmd-statusPage
-BMD Status Page Mod Themes.
+BMD Status Page Mod.
 
 ## Submitting A Theme
 You can submit your own theme by:
