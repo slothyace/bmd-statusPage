@@ -1,5 +1,6 @@
 # bmd-statusPage
 BMD Status Page Mod.
+![Action Interface](https://github.com/slothyace/bmd-statusPage/blob/main/.documentation/image.png)
 
 ## Submitting A Theme
 You can submit your own theme by:
