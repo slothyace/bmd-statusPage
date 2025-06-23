@@ -4,7 +4,8 @@
 ## Documentation
 ### Host
 The `ip` address to host the site on. By default, it is pre-configured to `localhost` (local machine availability).<br>
-If left empty, defaults to `0.0.0.0` (network availability).
+If left empty, defaults to `localhost`.<br>
+To host it such that it is available on your local network, host it on `0.0.0.0`.
 
 ### Port
 The `port` number to listen to. By default, it is pre-configured to port `3000`.<br>
