@@ -12,6 +12,10 @@ You can submit your own theme by:
 The folder's name will be taken as the theme's name.<br>
 Example: A theme named `galaxy` will be located in `themes/galaxy`.
 
+## Documentation
+The data structure documentation for this mod is [here](https://github.com/slothyace/bmd-statusPage/blob/main/.docs/dataStructure.md)<br>
+The usage documentation for this mod is [here](https://github.com/slothyace/bmd-statusPage/blob/main/.docs/README.md)
+
 ## File Requirements
 Your folder should include the following files:  
 - index.html  
