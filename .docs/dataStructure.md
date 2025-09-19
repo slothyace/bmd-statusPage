@@ -39,6 +39,8 @@ The data that is sent to the `/raw` endpoint are as follows:
   },
   versions: {
     node: "<Node Version>",
-    oceanic: "<Oceanic.js Version>"
+    oceanic: "<Oceanic.js Version>",
+    statusPage: "<statusPage Mod Version>"
   }
 }
+```
