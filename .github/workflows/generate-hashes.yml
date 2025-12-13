@@ -5,6 +5,7 @@ on:
     paths:
       - "themes/**"
       - "core/**"
+      - "**/**"
   workflow_dispatch:
 
 permissions:
