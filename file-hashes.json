@@ -1,0 +1,21 @@
+{
+  "themes": {
+    "default": {
+      "README.md": "118a8bffc6504d6cda10e6077255da15",
+      "bmd.ico": "dbf619cd1e5a35701d8dc959d4382b91",
+      "image.png": "3312e8181f7d7bfa659268d86de5e8e1",
+      "index.html": "a4f04922d068e9411f4218a42a76ccf8",
+      "style.css": "0766bbd836e4e7669db69406f9c600d8"
+    },
+    "myEyes": {
+      "README.md": "a0415c2041165db4a7ae03b67fa97ae6",
+      "bmd.ico": "dbf619cd1e5a35701d8dc959d4382b91",
+      "image.png": "67638281ebb0ebe798b86441be497d2d",
+      "index.html": "a470f2075f7ea8b1ed0570917264b046",
+      "style.css": "6c5311ee0d413245e9f47e23ef80988a"
+    }
+  },
+  "core": {
+    "login.html": "4e234cd114abf2cf14b5d8e124cc99dc"
+  }
+}
