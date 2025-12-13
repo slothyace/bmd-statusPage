@@ -1,0 +1,86 @@
+name: Generate MD5 Hashes
+
+on:
+  push:
+    paths:
+      - "themes/**"
+      - "core/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-hashes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate MD5 hashes
+        run: |
+          node <<'EOF'
+          const fs = require("fs")
+          const path = require("path")
+          const crypto = require("crypto")
+
+          function md5(filePath) {
+            return crypto
+              .createHash("md5")
+              .update(fs.readFileSync(filePath))
+              .digest("hex")
+          }
+
+          const root = process.cwd()
+          const outputFile = path.join(root, "file-hashes.json")
+
+          const result = {
+            themes: {},
+            core: {}
+          }
+
+          // -------- THEMES --------
+          const themesDir = path.join(root, "themes")
+          if (fs.existsSync(themesDir)) {
+            for (const themeName of fs.readdirSync(themesDir)) {
+              const themePath = path.join(themesDir, themeName)
+              if (!fs.statSync(themePath).isDirectory()) continue
+
+              result.themes[themeName] = {}
+
+              for (const file of fs.readdirSync(themePath)) {
+                const filePath = path.join(themePath, file)
+                if (!fs.statSync(filePath).isFile()) continue
+
+                result.themes[themeName][file] = md5(filePath)
+              }
+            }
+          }
+
+          // -------- CORE --------
+          const coreDir = path.join(root, "core")
+          if (fs.existsSync(coreDir)) {
+            for (const file of fs.readdirSync(coreDir)) {
+              const filePath = path.join(coreDir, file)
+              if (!fs.statSync(filePath).isFile()) continue
+
+              result.core[file] = md5(filePath)
+            }
+          }
+
+          fs.writeFileSync(
+            outputFile,
+            JSON.stringify(result, null, 2) + "\n"
+          )
+
+          console.log("Generated file-hashes.json")
+          EOF
+
+      - name: Commit hash file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add file-hashes.json
+          git diff --cached --quiet || git commit -m "chore: update file md5 hashes"
+          git push
