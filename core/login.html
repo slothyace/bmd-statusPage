@@ -113,37 +113,37 @@
 
     <script>
       document.getElementById("login-form").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        let redirect = new URLSearchParams(window.location.search).get("redirect") || `/monitor`;
+        e.preventDefault()
+        const username = document.getElementById("username").value
+        const password = document.getElementById("password").value
+        let redirect = new URLSearchParams(window.location.search).get("redirect") || `/monitor`
         if (!redirect.startsWith("/")) {
-          redirect = `/${redirect}`;
+          redirect = `/${redirect}`
         }
         if (redirect.startsWith("//")) {
-          redirect = `/monitor`;
+          redirect = `/monitor`
         }
 
-        const response = await fetch("/login", {
+        const response = await fetch("/statusPage/login/authenticate", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, password, redirect }),
-        });
+        })
 
-        let result = await response.json();
+        let result = await response.json()
 
         if (response.ok && result.success == true) {
-          let redirectURL = result.redirect || `/monitor`;
-          window.location.href = redirectURL;
+          let redirectURL = result.redirect || `/monitor`
+          window.location.href = redirectURL
         } else {
-          const formContainer = document.getElementById("login-form");
-          formContainer.classList.remove("shake");
-          void formContainer.offsetWidth;
-          formContainer.classList.add("shake");
+          const formContainer = document.getElementById("login-form")
+          formContainer.classList.remove("shake")
+          void formContainer.offsetWidth
+          formContainer.classList.add("shake")
         }
-      });
+      })
     </script>
   </body>
 </html>

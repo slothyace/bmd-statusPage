@@ -8,84 +8,43 @@
     <link rel="stylesheet" href="/monitor/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"
-      defer
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns" defer></script>
   </head>
-  <body
-    class="dark:bg-neutral-900 dark:text-white bg-neutral-100 text-black font-sans"
-  >
+  <body class="dark:bg-neutral-900 dark:text-white bg-neutral-100 text-black font-sans">
     <header class="w-screen h-24 bg-neutral-950 fixed top-0 left-0 z-50">
       <div class="flex items-center h-full mx-24">
-        <h1 class="text-2xl font-semibold">
-          <span class="prjName"></span> Status Page
-        </h1>
+        <h1 class="text-2xl font-semibold"><span class="prjName"></span> Status Page</h1>
       </div>
     </header>
     <div class="flex justify-between mx-16 gap-6 mt-32">
       <div class="flex flex-col gap-4 w-full">
         <h1 class="text-xl font-medium">Usage</h1>
-        <div
-          class="flex flex-col gap-4 max-h-[80vh] overflow-y-hidden justify-between h-[80vh]"
-        >
-          <div
-            class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0"
-          >
+        <div class="flex flex-col gap-4 max-h-[80vh] overflow-y-hidden justify-between h-[80vh]">
+          <div class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0">
             <div class="flex justify-between items-center">
-              <h1 class="font-semibold">
-                CPU Usage <span class="text-white/25">(in %)</span>
-              </h1>
-              <span
-                class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium cpuUsagePercent transition-opacity"
-                >0%</span
-              >
+              <h1 class="font-semibold">CPU Usage <span class="text-white/25">(in %)</span></h1>
+              <span class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium cpuUsagePercent transition-opacity">0%</span>
             </div>
             <canvas id="cpuUsageChart" class="flex-1 min-h-0 w-full"></canvas>
           </div>
-          <div
-            class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0"
-          >
+          <div class="bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 flex-1 min-h-0">
             <div class="flex justify-between items-center">
-              <h1 class="font-semibold">
-                Memory Usage <span class="text-white/25">(in MB)</span>
-              </h1>
-              <span
-                class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium memoryUsageMB transition-opacity"
-                >0 MB</span
-              >
+              <h1 class="font-semibold">Memory Usage <span class="text-white/25">(in MB)</span></h1>
+              <span class="text-xs bg-white rounded-full px-2 py-1 text-black font-medium memoryUsageMB transition-opacity">0 MB</span>
             </div>
-            <canvas
-              id="memoryUsageChart"
-              class="flex-1 min-h-0 w-full"
-            ></canvas>
+            <canvas id="memoryUsageChart" class="flex-1 min-h-0 w-full"></canvas>
           </div>
         </div>
       </div>
       <div class="flex flex-col gap-4 w-full">
         <h1 class="text-xl font-medium">Logs</h1>
-        <div
-          id="console"
-          class="w-full h-[80vh] bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 overflow-y-auto font-mono"
-        >
+        <div id="console" class="w-full h-[80vh] bg-neutral-950 rounded-xl p-4 flex flex-col gap-2 overflow-y-auto font-mono">
           <div class="flex gap-2 items-baseline">
-            <span class="bg-white text-sm px-2 py-1 h-fit rounded-md text-black"
-              >LOG</span
-            >
-            <span
-              title="May 28, 2025, 17:25:47"
-              class="bg-neutral-700 text-sm px-2 py-1 rounded-md"
-              >17:25:47</span
-            >
-            <p class="break-all">
-              Status Page Available At
-              "http://user:password@localhost:3000/monitor"
-            </p>
+            <span class="bg-white text-sm px-2 py-1 h-fit rounded-md text-black">LOG</span>
+            <span title="May 28, 2025, 17:25:47" class="bg-neutral-700 text-sm px-2 py-1 rounded-md">17:25:47</span>
+            <p class="break-all">Status Page Available At "http://user:password@localhost:3000/monitor"</p>
           </div>
         </div>
       </div>
@@ -168,79 +127,55 @@
       <div class="mx-16 my-8 text-center">
         <p class="text-sm text-neutral-500">
           Powered by
-          <a
-            href="https://github.com/slothyace/bmd-statusPage"
-            target="_blank"
-            class="text-blue-500/60 hover:underline"
-            >bmd-statuspage</a
-          >
+          <a href="https://github.com/slothyace/bmd-statusPage" target="_blank" class="text-blue-500/60 hover:underline">bmd-statuspage</a>
         </p>
-        <p class="text-sm text-neutral-500 mt-2">
-          Made with ❤️ by slothyacedia & qizzle
-        </p>
+        <p class="text-sm text-neutral-500 mt-2">Made with ❤️ by slothyacedia & qizzle</p>
       </div>
     </footer>
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", async function () {
-      const response = await fetch("/raw");
-      const data = await response.json();
+      const response = await fetch("statusPage/monitor/raw")
+      const data = await response.json()
 
       function setDataToClass(dataObj, prefix = "") {
         Object.keys(dataObj).forEach((key) => {
-          const value = dataObj[key];
-          const className = prefix ? `${prefix}${key}` : key;
+          const value = dataObj[key]
+          const className = prefix ? `${prefix}${key}` : key
           if (typeof value === "object" && value !== null) {
-            setDataToClass(value, `${className}.`);
+            setDataToClass(value, `${className}.`)
           } else {
-            const elements = document.getElementsByClassName(className);
+            const elements = document.getElementsByClassName(className)
             Array.from(elements).forEach((el) => {
-              el.textContent = value;
-            });
+              el.textContent = value
+            })
           }
-        });
+        })
       }
 
-      setDataToClass(data);
-      document.getElementById(
-        "tabName"
-      ).innerText = `${data.prjName} Status Page`;
+      setDataToClass(data)
+      document.getElementById("tabName").innerText = `${data.prjName} Status Page`
 
       function formatUptime(seconds) {
-        const days = Math.floor(seconds / 86400);
-        const hours = Math.floor((seconds % 86400) / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = Math.floor(seconds % 60);
+        const days = Math.floor(seconds / 86400)
+        const hours = Math.floor((seconds % 86400) / 3600)
+        const minutes = Math.floor((seconds % 3600) / 60)
+        const secs = Math.floor(seconds % 60)
         return (
-          String(days).padStart(2, "0") +
-          ":" +
-          String(hours).padStart(2, "0") +
-          ":" +
-          String(minutes).padStart(2, "0") +
-          ":" +
-          String(secs).padStart(2, "0")
-        );
+          String(days).padStart(2, "0") + ":" + String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0") + ":" + String(secs).padStart(2, "0")
+        )
       }
-      let uptimeSeconds = data.uptime;
+      let uptimeSeconds = data.uptime
       function updateUptime() {
-        document.querySelector(".uptime").textContent = formatUptime(
-          uptimeSeconds++
-        );
+        document.querySelector(".uptime").textContent = formatUptime(uptimeSeconds++)
       }
-      updateUptime();
-      setInterval(updateUptime, 1000);
+      updateUptime()
+      setInterval(updateUptime, 1000)
 
-      document.querySelector(".startTime").textContent = new Date(
-        data.startTime
-      ).toLocaleString();
-      document.querySelector(".startTimeAgo").textContent =
-        "(" +
-        Math.floor((Date.now() - new Date(data.startTime)) / 86400000) +
-        " days ago)";
-      document.querySelector(".users").textContent =
-        data.data[data.data.length - 1].counts.users;
-      document.querySelector(".guilds").textContent =
-        data.data[data.data.length - 1].counts.guild;
+      document.querySelector(".startTime").textContent = new Date(data.startTime).toLocaleString()
+      document.querySelector(".startTimeAgo").textContent = "(" + Math.floor((Date.now() - new Date(data.startTime)) / 86400000) + " days ago)"
+      document.querySelector(".users").textContent = data.data[data.data.length - 1].counts.users
+      document.querySelector(".guilds").textContent = data.data[data.data.length - 1].counts.guild
 
       const cpuDataset = {
         label: "CPU Usage (%)",
@@ -251,7 +186,7 @@
         borderColor: "rgba(75, 192, 192, 1)",
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         fill: true,
-      };
+      }
 
       const memoryDataset = {
         label: "Memory Usage (MB)",
@@ -262,117 +197,108 @@
         borderColor: "rgba(153, 102, 255, 1)",
         backgroundColor: "rgba(153, 102, 255, 0.2)",
         fill: true,
-      };
-
-      const cpuUsageChart = new Chart(
-        document.getElementById("cpuUsageChart").getContext("2d"),
-        {
-          type: "line",
-          data: { datasets: [cpuDataset] },
-          options: {
-            tension: 0.3,
-            plugins: { legend: { display: false } },
-            responsive: true,
-            interaction: {
-              mode: "nearest",
-              intersect: false,
-            },
-            scales: {
-              x: {
-                type: "time",
-                time: {
-                  unit: "second",
-                  displayFormats: { second: "HH:mm:ss" },
-                },
-              },
-              y: { beginAtZero: true },
-            },
-          },
-        }
-      );
-
-      const memoryUsageChart = new Chart(
-        document.getElementById("memoryUsageChart").getContext("2d"),
-        {
-          type: "line",
-          data: { datasets: [memoryDataset] },
-          options: {
-            tension: 0.3,
-            plugins: { legend: { display: false } },
-            responsive: true,
-            interaction: {
-              mode: "nearest",
-              intersect: false,
-            },
-            scales: {
-              x: {
-                type: "time",
-                time: {
-                  unit: "second",
-                  displayFormats: { second: "HH:mm:ss" },
-                },
-              },
-              y: { beginAtZero: true },
-            },
-          },
-        }
-      );
-
-      function updateTags() {
-        const cpu = document.querySelector(".cpuUsagePercent");
-        const memory = document.querySelector(".memoryUsageMB");
-        cpu.textContent = cpuDataset.data[cpuDataset.data.length - 1].y + "%";
-        memory.textContent =
-          memoryDataset.data[memoryDataset.data.length - 1].y + " MB";
-        cpu.style.opacity = "0.85";
-        memory.style.opacity = "0.85";
-        setTimeout(() => {
-          cpu.style.opacity = "1";
-          memory.style.opacity = "1";
-        }, 400);
       }
 
-      updateTags();
+      const cpuUsageChart = new Chart(document.getElementById("cpuUsageChart").getContext("2d"), {
+        type: "line",
+        data: { datasets: [cpuDataset] },
+        options: {
+          tension: 0.3,
+          plugins: { legend: { display: false } },
+          responsive: true,
+          interaction: {
+            mode: "nearest",
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: "time",
+              time: {
+                unit: "second",
+                displayFormats: { second: "HH:mm:ss" },
+              },
+            },
+            y: { beginAtZero: true },
+          },
+        },
+      })
+
+      const memoryUsageChart = new Chart(document.getElementById("memoryUsageChart").getContext("2d"), {
+        type: "line",
+        data: { datasets: [memoryDataset] },
+        options: {
+          tension: 0.3,
+          plugins: { legend: { display: false } },
+          responsive: true,
+          interaction: {
+            mode: "nearest",
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: "time",
+              time: {
+                unit: "second",
+                displayFormats: { second: "HH:mm:ss" },
+              },
+            },
+            y: { beginAtZero: true },
+          },
+        },
+      })
+
+      function updateTags() {
+        const cpu = document.querySelector(".cpuUsagePercent")
+        const memory = document.querySelector(".memoryUsageMB")
+        cpu.textContent = cpuDataset.data[cpuDataset.data.length - 1].y + "%"
+        memory.textContent = memoryDataset.data[memoryDataset.data.length - 1].y + " MB"
+        cpu.style.opacity = "0.85"
+        memory.style.opacity = "0.85"
+        setTimeout(() => {
+          cpu.style.opacity = "1"
+          memory.style.opacity = "1"
+        }, 400)
+      }
+
+      updateTags()
 
       setInterval(async () => {
-        const response = await fetch("/raw");
-        const newData = await response.json();
+        const response = await fetch("statusPage/monitor/raw")
+        const newData = await response.json()
 
         cpuDataset.data = newData.data.map((d) => ({
           x: d.timestamp,
           y: parseFloat(d.cpu),
-        }));
+        }))
         memoryDataset.data = newData.data.map((d) => ({
           x: d.timestamp,
           y: parseFloat(d.memory),
-        }));
+        }))
 
-        updateTags();
+        updateTags()
 
-        cpuUsageChart.update();
-        memoryUsageChart.update();
-      }, data.updInterval || 5000);
+        cpuUsageChart.update()
+        memoryUsageChart.update()
+      }, data.updInterval || 5000)
 
-      const console = document.getElementById("console");
+      const console = document.getElementById("console")
 
-      let firstConsoleLoad = true;
-      let lastLogCount = 0;
+      let firstConsoleLoad = true
+      let lastLogCount = 0
 
       async function updateConsoleLogs() {
-        const response = await fetch("/raw");
-        const newData = await response.json();
-        const prevLogCount = lastLogCount;
-        lastLogCount = newData.logs.length;
+        const response = await fetch("statusPage/monitor/raw")
+        const newData = await response.json()
+        const prevLogCount = lastLogCount
+        lastLogCount = newData.logs.length
 
-        const prevContent = console.innerHTML;
+        const prevContent = console.innerHTML
 
-        let newContent = "";
+        let newContent = ""
         newData.logs.forEach((log) => {
-          let dateObj = new Date(log.timestamp);
-          const displayTime = dateObj
-            ? dateObj.toLocaleTimeString([], { hour12: false })
-            : timeStr;
-          const titleTime = dateObj ? dateObj.toLocaleString() : timeStr;
+          let dateObj = new Date(log.timestamp)
+          const displayTime = dateObj ? dateObj.toLocaleTimeString([], { hour12: false }) : timeStr
+          const titleTime = dateObj ? dateObj.toLocaleString() : timeStr
 
           newContent += `
             <div class="flex gap-2 items-baseline">
@@ -380,20 +306,19 @@
               <span class="bg-neutral-700 text-xs px-2 py-1 rounded-md" title="${titleTime}">${displayTime}</span>
               <p class="break-all text-xs">${log.msg}</p>
             </div>
-          `;
-        });
+          `
+        })
 
-        const isNew = prevLogCount !== lastLogCount || firstConsoleLoad;
-        console.innerHTML = newContent;
+        const isNew = prevLogCount !== lastLogCount || firstConsoleLoad
+        console.innerHTML = newContent
         if (isNew) {
-          console.scrollTop = console.scrollHeight;
+          console.scrollTop = console.scrollHeight
         }
-        firstConsoleLoad = false;
+        firstConsoleLoad = false
       }
 
-      updateConsoleLogs();
-      setInterval(updateConsoleLogs, data.updInterval || 5000);
-    });
+      updateConsoleLogs()
+      setInterval(updateConsoleLogs, data.updInterval || 5000)
+    })
   </script>
 </html>
-
