@@ -116,7 +116,7 @@
         e.preventDefault()
         const username = document.getElementById("username").value
         const password = document.getElementById("password").value
-        let redirect = new URLSearchParams(window.location.search).get("redirect") || `/monitor`
+        let redirect = new URLSearchParams(window.location.search).get("redirect") || `/statusPage/monitor/view`
         if (!redirect.startsWith("/")) {
           redirect = `/${redirect}`
         }
@@ -135,7 +135,7 @@
         let result = await response.json()
 
         if (response.ok && result.success == true) {
-          let redirectURL = result.redirect || `/monitor`
+          let redirectURL = result.redirect || `/statusPage/monitor/view`
           window.location.href = redirectURL
         } else {
           const formContainer = document.getElementById("login-form")
