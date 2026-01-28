@@ -52,6 +52,7 @@ The theme of the status page, alternative themes are available [here](https://gi
 
 This is a toggle that checks for the file hashes on startup, if you have customisations on a theme that is not on GitHub, turn this off.
 
-### Update To HTTPS
+### Upgrade To HTTPS
 
 Turn this on in order to upgrade the connection to a HTTPS connection, you can input the file paths to the cert files.
+
